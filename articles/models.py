@@ -11,7 +11,8 @@ class Article(models.Model):
         ('opinion', 'Opinion'),
         ('lifestyle', 'Lifestyle'),
         ('reviews', 'Reviews'),
-        ('travel', 'Travel')
+        ('travel', 'Travel'),
+        ('other', 'Other'),
     ]
 
     publisher_field_choices = [
