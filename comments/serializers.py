@@ -20,7 +20,6 @@ class CommentSerializer(serializers.ModelSerializer):
     def get_updated_on(self, obj):
         return naturaltime(obj.updated_on)
 
-
     class Meta:
         model = Comment
         fields = [
