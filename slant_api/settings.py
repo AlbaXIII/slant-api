@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     'articles',
     'comments',
     'favourites',
+    'ratings',
 ]
 
 MIDDLEWARE = [
