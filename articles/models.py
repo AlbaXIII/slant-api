@@ -29,7 +29,7 @@ class Article(models.Model):
         ('other', 'Other'),
     ]
 
-    owner = owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     publisher = models.CharField(max_length=32,

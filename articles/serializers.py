@@ -5,7 +5,7 @@ from ratings.models import Rating
 
 
 class ArticleSerializer(serializers.ModelSerializer):
-    owner = serializers.ReadOnlyField(source='owner.username'),
+    owner = serializers.ReadOnlyField(source='owner.username')
     is_owner = serializers.SerializerMethodField()
     profile_id = serializers.ReadOnlyField(source='owner.profile.id')
     favourite_id = serializers.SerializerMethodField()
