@@ -1,4 +1,4 @@
-# /slant README
+# /slant api README
 
 ![slant site logo image](assets/readme_misc/slant-default-image_thumbnail.png)
 
@@ -40,7 +40,7 @@ slant created using **React** and **Django REST framework**, and is my PP5 submi
 
 ## Links
 
-- [Deployed AP](https://slantapi-c636400a6ffd.herokuapp.com/)
+- [Deployed API](https://slantapi-c636400a6ffd.herokuapp.com/)
 - Frontend - []
 - [Project Kanban Board](https://github.com/users/AlbaXIII/projects/11)
 
