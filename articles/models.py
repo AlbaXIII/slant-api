@@ -38,6 +38,7 @@ class Article(models.Model):
     subject = models.CharField(max_length=32,
                                choices=subject_field_choices, default='news')
     title = models.CharField(max_length=255)
+    link = models.CharField(max_length=255, default="link")
     image = models.ImageField(
         upload_to='images/', default='../slant-default-image_ff67lu',
         blank=True

@@ -54,7 +54,7 @@ class ArticleSerializer(serializers.ModelSerializer):
         fields = [
             'id', 'owner', 'is_owner', 'profile_id',
             'created_on', 'updated_on', 'publisher', 'subject',
-            'title', 'image', 'body', 'favourite_id',
+            'title', 'link',  'image', 'body', 'favourite_id',
             'favourites_count', 'rating_id', 'ratings_count',
             'comments_count'
         ]
