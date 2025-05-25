@@ -4,6 +4,8 @@ from django_filters.rest_framework import DjangoFilterBackend
 from .models import Article
 from .serializers import ArticleSerializer
 from slant_api.permissions import ReadOnlyIfNotOwner
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
 
 
 class ArticleList(generics.ListCreateAPIView):
@@ -51,6 +53,12 @@ def get_queryset(self):
     if subject:
         queryset = queryset.filter(subject__icontains=subject)
     return queryset
+
+
+@api_view(['GET'])
+def get_subjects(request):
+    subjects = Article.objects.values_list('subject', flat=True).distinct()
+    return Response({'subjects': list(subjects)})
 
 
 class ArticleDetail(generics.RetrieveUpdateDestroyAPIView):
