@@ -4,8 +4,6 @@ from django_filters.rest_framework import DjangoFilterBackend
 from .models import Article
 from .serializers import ArticleSerializer
 from slant_api.permissions import ReadOnlyIfNotOwner
-from rest_framework.response import Response
-from rest_framework.decorators import api_view
 
 
 class ArticleList(generics.ListCreateAPIView):
@@ -25,6 +23,7 @@ class ArticleList(generics.ListCreateAPIView):
     ]
 
     filterset_fields = [
+        'owner',
         'owner__article__owner__profile',
         'favourites__owner__profile',
         'owner__comment__owner__profile',
@@ -45,20 +44,6 @@ class ArticleList(generics.ListCreateAPIView):
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
-
-
-def get_queryset(self):
-    queryset = Article.objects.all()
-    subject = self.request.query_params.get('subject')
-    if subject:
-        queryset = queryset.filter(subject__icontains=subject)
-    return queryset
-
-
-@api_view(['GET'])
-def get_subjects(request):
-    subjects = Article.objects.values_list('subject', flat=True).distinct()
-    return Response({'subjects': list(subjects)})
 
 
 class ArticleDetail(generics.RetrieveUpdateDestroyAPIView):
