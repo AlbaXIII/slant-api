@@ -24,6 +24,8 @@ class ArticleList(generics.ListCreateAPIView):
 
     filterset_fields = [
         'owner',
+        'owner__username',
+        'favourites__owner__username',
         'owner__article__owner__profile',
         'favourites__owner__profile',
         'owner__comment__owner__profile',
