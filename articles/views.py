@@ -45,6 +45,14 @@ class ArticleList(generics.ListCreateAPIView):
         serializer.save(owner=self.request.user)
 
 
+def get_queryset(self):
+    queryset = Article.objects.all()
+    subject = self.request.query_params.get('subject')
+    if subject:
+        queryset = queryset.filter(subject__icontains=subject)
+    return queryset
+
+
 class ArticleDetail(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = [ReadOnlyIfNotOwner]
     serializer_class = ArticleSerializer
