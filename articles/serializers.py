@@ -14,7 +14,7 @@ class ArticleSerializer(serializers.ModelSerializer):
     ratings_count = serializers.ReadOnlyField()
     comments_count = serializers.ReadOnlyField()
 
-    def validate_image_size(self, value):
+    def validate_image(self, value):
 
         if value is None or value == '':
             return value
