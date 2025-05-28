@@ -5,11 +5,14 @@ from django_filters.rest_framework import DjangoFilterBackend
 from django.db.models import Avg
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
+from slant_api.permissions import ReadOnlyIfNotOwner
 
 
 class RatingList(generics.ListCreateAPIView):
     serializer_class = RatingSerializer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    permission_classes = [
+        permissions.IsAuthenticatedOrReadOnly
+    ]
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['article']
 
@@ -22,7 +25,7 @@ class RatingList(generics.ListCreateAPIView):
 
 class RatingDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = RatingSerializer
-    permission_classes = [permissions.ReadOnlyIfNotOwner]
+    permission_classes = [ReadOnlyIfNotOwner]
 
     def get_queryset(self):
         return Rating.objects.all()
@@ -35,7 +38,7 @@ class RatingDetail(generics.RetrieveUpdateDestroyAPIView):
 @permission_classes([permissions.AllowAny])
 class RatingDetailView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = RatingSerializer
-    permission_classes = [permissions.ReadOnlyIfNotOwner]
+    permission_classes = [ReadOnlyIfNotOwner]
 
     def get_queryset(self):
         return Rating.objects.all()
