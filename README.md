@@ -34,6 +34,8 @@ slant is a totally objective repository of journalistic articles where users can
 
 However, this is not all – each submission to slant is ranked by bias according to the slant users. This numerical rating is displayed on each of the articles, and allows users to form an opinion before reading that they can then examine after seeing the article themselves. 
 
+Most of all, the idea behind slant is to take the **noise** out of online news reading. No ads, no distractions, just stories that matter to you and a safe space to cross-examine and discuss.
+
 slant aims to break the news media wheel of doom and expand the horizons of it’s users, and provide a website where the bias of a story is voted on by the users of the website – allowing each and every user to examine journalistic prejudices and begin to examine the media from a Critical stance, with each piece of content receiving ratings based on user inputs.
 
 slant created using **React** and **Django REST framework**, and is my PP5 submission for Code Institute Advanced Front End.
@@ -41,12 +43,68 @@ slant created using **React** and **Django REST framework**, and is my PP5 submi
 ## Links
 
 - [Deployed API](https://slantapi-c636400a6ffd.herokuapp.com/)
-- Frontend - []
+- [slant Frontend](https://github.com/AlbaXIII/slant)
 - [Project Kanban Board](https://github.com/users/AlbaXIII/projects/11)
 
 ## User Stories & Methodology
 
+The main user stories for slant, both backend and frontend, were collated into a github [Kanban Board](https://github.com/users/AlbaXIII/projects/11) for convenience and consistency across the project. The user stories for both ends of the stack have followed the MoSCoW methodology – separating features into **must-have**, **should-have**, **could-have** and **won’t-have**.
 
+Furthermore, each grouping of user stories had it’s own corresponding EPIC;
+
+- EPIC 1 – database setup
+
+- EPIC 2 – article model
+
+- EPIC 3 – comment model
+
+- EPIC 4 – rating model
+
+- EPIC 5 – profile model
+
+- EPIC 6 – deployment
+
+The total list of user stories noted in the Kanban board are listed below, organised into their respective EPIC & MoSCoW categories.
+
+ 
+
+The following user stories were created for slant-api;
+
+**database setup**
+
+* Link project to kanban board - M
+* Initialise Django REST apps, link database & cloudinary storage - M
+* Create SuperUser for Admin access - M
+* Deploy to Heroku - M
+
+**article model**
+
+* add article model and migrate – M
+* search and filter articles – S
+* favourite articles - M
+
+**comment model**
+
+* add comment model and migrate - M
+* add reply function - C
+
+**review model**
+
+* add review model and migrate – M
+
+**profile model**
+
+* add profile model and migrate - M
+
+**final deployment**
+
+* finalise thorough testing of all models - M
+* complete final deployment to Heroku - M
+
+**admin documentation**
+
+* complete initial README documentation - M
+* complete final README documentation - M
 
 ## Database & Structure
 
@@ -163,7 +221,18 @@ To clone this repository;
 
 ## TECHNOLOGIES USED
 
-
+- git (main version control)
+- Python 3.12
+- Django 4.2
+- Django REST Framework 3.16
+- Django Allauth 0.50.0
+- Django REST Auth 2.2.8
+- DjangoCORSheaders  4.5.0
+- Gunicorn 23.0.0
+- Pillow 11.2.1
+- Pyscopg2 2.9.10
+- Cloudinary 1.44.0
+- Flake8 – 7.2.0
 
 ## Credits & Acknowledgements
 
@@ -173,3 +242,7 @@ To clone this repository;
 
 
 ### Acknowledgements
+
+
+- As always Dick Vlaanderen, my Code Institute mentor, for being a calm, knowledgeable and reassuring presence.
+- My wife Kate for putting up with all my stress!
