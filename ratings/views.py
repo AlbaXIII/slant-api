@@ -23,19 +23,6 @@ class RatingList(generics.ListCreateAPIView):
         serializer.save(owner=self.request.user)
 
 
-class RatingDetail(generics.RetrieveUpdateDestroyAPIView):
-    serializer_class = RatingSerializer
-    permission_classes = [ReadOnlyIfNotOwner]
-
-    def get_queryset(self):
-        return Rating.objects.all()
-
-    def perform_create(self, serializer):
-        serializer.save(owner=self.request.user)
-
-
-@api_view(['GET'])
-@permission_classes([permissions.AllowAny])
 class RatingDetailView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = RatingSerializer
     permission_classes = [ReadOnlyIfNotOwner]
@@ -44,13 +31,13 @@ class RatingDetailView(generics.RetrieveUpdateDestroyAPIView):
         return Rating.objects.all()
 
 
+@api_view(['GET'])
+@permission_classes([permissions.AllowAny])
 def article_rating_stats(request, article_id):
     ratings = Rating.objects.filter(article=article_id)
-
     if ratings.exists():
         avg_rating = ratings.aggregate(Avg('rating'))['rating__avg']
         total_ratings = ratings.count()
-
         return Response({
             'average_rating': round(avg_rating, 1) if avg_rating else 0,
             'total_ratings': total_ratings,

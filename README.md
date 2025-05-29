@@ -20,8 +20,6 @@
 
 
 
-
-
 ## Introduction
 
 *NB - This repository is the backend API for Portfolio Project 5 of Code Institute's full stack development course. Please see the link section below for navigation to the front end application and project board.*
@@ -66,7 +64,7 @@ Furthermore, each grouping of user stories had it’s own corresponding EPIC;
 
 The total list of user stories noted in the Kanban board are listed below, organised into their respective EPIC & MoSCoW categories.
 
- 
+![slant kanban board](assets\readme_screenshots\slant-kanban.PNG)
 
 The following user stories were created for slant-api;
 
@@ -116,11 +114,59 @@ The main Entity Relationship Diagram (ERD) for the project was designed using th
 
 ## Testing
 
-### Unit Testing
+### Manual Testing
+
+Rigorous manual testing has been undertaken on every implemented database model, the results of which have been written into the tables below;
+
+![slant-api root](assets\readme_screenshots\slant-api-root.PNG)
+
+**GENERAL**
+| **Test**    | **Action** | **Expected Outcome**  | **Pass/Fail** | **Comments** |
+| ----------- | ----------- | ----------- | ----------- | ----------- |
+| API loads to root page with custom message | access API through given URL | message displays correctly | PASS
+| Admin users can access administrative console for full control over all models & users | log on as an admin user on to admin console & test full CRUD functions over database | admin able to use all expected elements | PASS (Summernote not included)
+| All submissions with date & time fields return correct values | upload article, comment, rating | value returned is shown accurately | PASS
+| Edits to all models reflected instantley in API view | edit profile, article, comment, rating front-end & observe change in API | data is updated to reflect change | PASS
 
 
+![slant-api profile](assets\readme_screenshots\slant-api-profile.PNG)
 
+**PROFILE**
+| **Test**    | **Action** | **Expected Outcome**  | **Pass/Fail** | **Comments** |
+| ----------- | ----------- | ----------- | ----------- | ----------- |
+| /profiles displays list of created profiles to the database | input correct URL & observe list | list displays all information | PASS
+| /profile/<int> (e.g 1) diplays only the information given for the profile linked to the primary id key | access URL and obeserve returned data | data returned is single profile linked to pk | PASS
+| profile users on the front end who utilise edit forms can update data on API | access frontend as auth user & change username, password, bio | change is reflected in API backend | PASS
+| Incorrect or invalid profile URL returns relevant error message URL | input non-existent profile int | error message returns successfully | PASS
 
+![slant-api article](assets\readme_screenshots\slant-api-article.PNG)
+
+**ARTICLE**
+| **Test**    | **Action** | **Expected Outcome**  | **Pass/Fail** | **Comments** |
+| ----------- | ----------- | ----------- | ----------- | ----------- |
+| /articles displays list of created profiles to the database | input correct URL & observe list | list displays all posted information | PASS
+| /article/<int> (e.g 1) diplays only the information given for the article linked to the primary id key | access URL and obeserve returned data | data returned is single article linked to pk | PASS
+| article model's charfield choices for subject & publisher are reflected correctly in user uploads | attempt upload frontend using dropdowns | string returned is interpreted by serializer as charfield choice | PASS
+| Incorrect or invalid article URL returns relevant error message URL | input non-existent article int | error message returns successfully | PASS
+| Favourite count increments with all added favourites added | add extra favourite through frontend | favourite count increments +1 successfully | PASS
+| Comment count increments with all added comments added | add extra comment through frontend | comment count increments +1 successfully | PASS
+
+![slant-api article](assets\readme_screenshots\slant-api-comment.PNG)
+
+**COMMENT**
+| **Test**    | **Action** | **Expected Outcome**  | **Pass/Fail** | **Comments** |
+| ----------- | ----------- | ----------- | ----------- | ----------- |
+| /comments displays list of created comments to the database | input correct URL & observe list | list displays all posted information | PASS
+| /comments/<int> (e.g 1) diplays only the information given for the comment linked to the primary id key & article | access URL and obeserve returned data | data returned is single article linked to pk | PASS
+
+![slant-api article](assets\readme_screenshots\slant-api-rating.PNG)
+
+**RATING**
+| **Test**    | **Action** | **Expected Outcome**  | **Pass/Fail** | **Comments** |
+| ----------- | ----------- | ----------- | ----------- | ----------- |
+| /ratings displays list of created ratings to the database | input correct URL & observe list | list displays all posted information | PASS
+| /ratings/<int> (e.g 1) diplays only the information given for the rating linked to the primary id key & article | access URL and obeserve returned data | data returned is single article linked to pk | PASS
+| /ratings/<int>/rating-stats returns the average value for individual rating to be returned for average rating form | access URL and obeserve returned data | data returned is single rating stats linked to pk | PASS
 
 ### Validators
 
@@ -153,6 +199,10 @@ Search and filter functions tested in both local production and deployed environ
 CRUD table used for reference when manually testing API functionality.
 
 ![slant CRUD table](assets/readme_screenshots/slant-crud-table.PNG)
+
+## Security
+
+Security is taken care of by utilising a hidden env.py file which is commited to gitignore to ensure it is never accessible publicly. Three key pieces of secret information are included in the env.py file: Cloudinary URL connection, Django secret key, and postgreSQL database URL. This information has been created as env variables in the settings.py file with references to the generic names deliniated in env.py.
 
 
 ## Bugs
