@@ -186,7 +186,7 @@ All Python code passed through **[Flake8](https://flake8.pycqa.org/en/latest/)**
 
 URL paths tested both in local production and deployed environments.
 
-![slant URL path testing screengrab](assets\readme_testing\slant-url-path-testing.PNG)
+![slant URL path testing screengrab](assets/readme_testing/slant-url-path-testing.PNG)
 
 **Search & Filters**
 
