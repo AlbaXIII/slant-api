@@ -118,7 +118,7 @@ The main Entity Relationship Diagram (ERD) for the project was designed using th
 
 Rigorous manual testing has been undertaken on every implemented database model, the results of which have been written into the tables below;
 
-![slant-api root](assets\readme_screenshots\slant-api-root.PNG)
+![slant-api root](assets/readme_screenshots/slant-api-root.PNG)
 
 **GENERAL**
 | **Test**    | **Action** | **Expected Outcome**  | **Pass/Fail** | **Comments** |
@@ -129,7 +129,7 @@ Rigorous manual testing has been undertaken on every implemented database model,
 | Edits to all models reflected instantley in API view | edit profile, article, comment, rating front-end & observe change in API | data is updated to reflect change | PASS
 
 
-![slant-api profile](assets\readme_screenshots\slant-api-profile.PNG)
+![slant-api profile](assets/readme_screenshots/slant-api-profile.PNG)
 
 **PROFILE**
 | **Test**    | **Action** | **Expected Outcome**  | **Pass/Fail** | **Comments** |
@@ -139,7 +139,7 @@ Rigorous manual testing has been undertaken on every implemented database model,
 | profile users on the front end who utilise edit forms can update data on API | access frontend as auth user & change username, password, bio | change is reflected in API backend | PASS
 | Incorrect or invalid profile URL returns relevant error message URL | input non-existent profile int | error message returns successfully | PASS
 
-![slant-api article](assets\readme_screenshots\slant-api-article.PNG)
+![slant-api article](assets/readme_screenshots/slant-api-article.PNG)
 
 **ARTICLE**
 | **Test**    | **Action** | **Expected Outcome**  | **Pass/Fail** | **Comments** |
@@ -151,7 +151,7 @@ Rigorous manual testing has been undertaken on every implemented database model,
 | Favourite count increments with all added favourites added | add extra favourite through frontend | favourite count increments +1 successfully | PASS
 | Comment count increments with all added comments added | add extra comment through frontend | comment count increments +1 successfully | PASS
 
-![slant-api article](assets\readme_screenshots\slant-api-comment.PNG)
+![slant-api article](assets/readme_screenshots/slant-api-comment.PNG)
 
 **COMMENT**
 | **Test**    | **Action** | **Expected Outcome**  | **Pass/Fail** | **Comments** |
@@ -159,7 +159,7 @@ Rigorous manual testing has been undertaken on every implemented database model,
 | /comments displays list of created comments to the database | input correct URL & observe list | list displays all posted information | PASS
 | /comments/<int> (e.g 1) diplays only the information given for the comment linked to the primary id key & article | access URL and obeserve returned data | data returned is single article linked to pk | PASS
 
-![slant-api article](assets\readme_screenshots\slant-api-rating.PNG)
+![slant-api article](assets/readme_screenshots/slant-api-rating.PNG)
 
 **RATING**
 | **Test**    | **Action** | **Expected Outcome**  | **Pass/Fail** | **Comments** |
