@@ -28,13 +28,11 @@ Modern current affair news media is a minefield. There are so many sources and a
 
 slant does things differently.
 
-slant is a totally objective repository of journalistic articles where users can submit and share pieces – either written independently or from one of the major outlets – and comment, favourite and share their favourites. 
+slant is a totally objective repository of journalistic articles where users can submit and share pieces – either written independently or from one of the major outlets – and comment or bookmark their favourites.
 
-However, this is not all – each submission to slant is ranked by bias according to the slant users. This numerical rating is displayed on each of the articles, and allows users to form an opinion before reading that they can then examine after seeing the article themselves. 
+However, this is not all – each submission to slant is rated by our users and an average rating is displayed beneath each article. Users are encouraged to rate articles on critical analysis and not sensationalism, because most of all, slant is a place for stories without the **noise** of modern news outlets - no ads, no distractions, just discussion and analysis.
 
-Most of all, the idea behind slant is to take the **noise** out of online news reading. No ads, no distractions, just stories that matter to you and a safe space to cross-examine and discuss.
-
-slant aims to break the news media wheel of doom and expand the horizons of it’s users, and provide a website where the bias of a story is voted on by the users of the website – allowing each and every user to examine journalistic prejudices and begin to examine the media from a Critical stance, with each piece of content receiving ratings based on user inputs.
+slant aims to break the news media wheel of doom and expand the horizons of its users, and provide a website where the bias of a story is voted on by the users of the website – allowing each and every user to examine journalistic prejudices and begin to examine the media from a Critical stance, with each piece of content receiving ratings based on user inputs.
 
 slant created using **React** and **Django REST framework**, and is my PP5 submission for Code Institute Advanced Front End.
 
@@ -64,7 +62,7 @@ Furthermore, each grouping of user stories had it’s own corresponding EPIC;
 
 The total list of user stories noted in the Kanban board are listed below, organised into their respective EPIC & MoSCoW categories.
 
-![slant kanban board](assets\readme_screenshots\slant-kanban.PNG)
+![slant kanban board](assets/readme_screenshots/slant-kanban.PNG)
 
 The following user stories were created for slant-api;
 
@@ -204,7 +202,6 @@ CRUD table used for reference when manually testing API functionality.
 
 Security is taken care of by utilising a hidden env.py file which is commited to gitignore to ensure it is never accessible publicly. Three key pieces of secret information are included in the env.py file: Cloudinary URL connection, Django secret key, and postgreSQL database URL. This information has been created as env variables in the settings.py file with references to the generic names deliniated in env.py.
 
-
 ## Bugs
 
 No known bugs at time of deployment.
@@ -225,7 +222,7 @@ All commands passed through the git commit -m command, and pushed to github with
 
 ### Environmental Variables
 
-The deployment process followed is based primarily from Code Institutes 'I Think Therefore I Blog' Walkthrough project.
+The deployment process followed is based primarily from Code Institutes 'DRF-API & Moments' walkthrough projects.
 
 - Create env.py in root directory of project.
 - Add env.py to .gitignore.
@@ -241,6 +238,8 @@ The deployment process followed is based primarily from Code Institutes 'I Think
 - Turn debug to 'False' in settings.py.
 
 In Heroku;
+
+**NB - Heroku deployment flagged an error with undefined python versions, however after appending a .python-version file to the root of the project, the deployment failed with a duplicate version error. Checking back to the CI DRF Module, the error was present there as well. As the current deployment is stable, the warning will remain upon deplyment**
 
 - Log in or register, then click 'create app'.
 - In the new app menu, click on deploy.
@@ -290,9 +289,7 @@ To clone this repository;
 
 - slant is a project heavily inspired and based on 'moments' - the advanced front end CI module. The API development journey was mapped alongside 'moments' as a guide, and expanded upon where relevant to make slant stand alone.
 
-
 ### Acknowledgements
-
 
 - As always Dick Vlaanderen, my Code Institute mentor, for being a calm, knowledgeable and reassuring presence.
 - My wife Kate for putting up with all my stress!
